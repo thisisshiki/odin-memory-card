@@ -14,29 +14,30 @@ function App() {
   });
 
   useEffect(() => {
-    const fetchZodiacImages = async () => {
-      try {
-        const cardsData = await Promise.all(
-          zodiacSigns.map(async (sign) => {
-            const response = await fetch(
-              `https://source.unsplash.com/featured/400x300?${sign.query}`
-            );
-            return {
-              id: crypto.randomUUID(),
-              name: sign.name,
-              imageUrl: response.url,
-              selected: false,
-            };
-          })
-        );
-        setCards(shuffleArray(cardsData));
-      } catch (error) {
-        console.error('Error fetching images:', error);
-      }
-    };
-
-    fetchZodiacImages();
-  }, []);
+      const fetchZodiacImages = async () => {
+        try {
+          const cardsData = await Promise.all(
+            zodiacSigns.map(async (sign) => {
+              const response = await fetch(
+                `https://pixabay.com/api/?key=47600416-651fc55cd5f3322e97d9cda1c&q=${sign.query}&image_type=photo`
+              );
+              const data = await response.json();
+              return {
+                id: crypto.randomUUID(),
+                name: sign.name,
+                imageUrl: data.hits[0].webformatURL,
+                selected: false,
+              };
+            })
+          );
+          setCards(shuffleArray(cardsData));
+        } catch (error) {
+          console.error('Error fetching images:', error);
+        }
+      };
+  
+      fetchZodiacImages();
+    }, []);
 
   const handleCardSelect = (id: string) => {
     const selectedCard = cards.find(card => card.id === id);
