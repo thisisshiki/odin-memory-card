@@ -70,15 +70,15 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-purple-800 to-purple-900">
+    <div className="min-h-screen bg-gray-900">
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-white mb-4 flex items-center justify-center gap-2">
+          <h1 className="text-4xl font-bold text-gray-100 mb-4 flex items-center justify-center gap-2">
             <Sparkles className="w-8 h-8" />
             Zodiac Memory Game
             <Sparkles className="w-8 h-8" />
           </h1>
-          <p className="text-purple-200 text-lg mb-6">
+          <p className="text-gray-400 text-lg mb-6">
             Test your memory! Click on each zodiac sign only once.
           </p>
           <Scoreboard currentScore={score.currentScore} bestScore={score.bestScore} />

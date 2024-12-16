@@ -18,8 +18,7 @@ export function Card({ card, onSelect }: CardProps) {
           className="w-full h-48 object-cover"
           loading="lazy"
         />
-        <div className="p-4 bg-gradient-to-b from-purple-600/90 to-purple-800/90">
-          <h3 className="text-lg font-semibold text-white text-center">
+        <div className="p-4 bg-gradient-to-b from-gray-600/90 to-gray-800/90">          <h3 className="text-lg font-semibold text-white text-center">
             {card.name}
           </h3>
         </div>
